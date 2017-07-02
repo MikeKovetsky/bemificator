@@ -4,7 +4,7 @@ Now is in the initial stage of syntax drafts.
 
 # Basic usage:
 
-some bemmedHTML code: 
+some bemmed HTML code: 
 <pre> 
 Tabs 
     tab[active]
@@ -20,6 +20,7 @@ This will be translated into:
         <div class="tabs__tab">
     </div>
 ```
+Sass output:
 ```sass
     .tabs
       &__tab
