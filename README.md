@@ -12,7 +12,8 @@ Tabs
     tab
 ```   
 
-This will be translated into:
+<code>Run npm bemificator</code>
+This will translate the source bemified code into:
 ```html
 <div class="tabs">
     <div class="tabs__tab--active">
@@ -29,3 +30,9 @@ Sass output:
     &--active
 ```
 
+Configuration file:
+configs basic path must be specified in the bemificator npm script
+
+bemificator-config.json
+source: source code path
+styles-output: "none" / "sass" / "scss" / "css" / "less"
