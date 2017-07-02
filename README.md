@@ -5,12 +5,12 @@ Now is in the initial stage of syntax drafts.
 # Basic usage:
 
 some bemmed HTML code: 
-<pre> 
+```html
 Tabs 
     tab[active]
     tab
     tab
-</pre>    
+```   
 
 This will be translated into:
 ```html
