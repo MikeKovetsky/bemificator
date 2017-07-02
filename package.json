@@ -1,14 +1,14 @@
 {
-  "name": "bemification",
-  "version": "0.0.1",
+  "name": "bemificator",
+  "version": "0.0.2",
   "description": "An advanced preprocessor to write a cleat BEM oriented code. Now is in the initial stage of syntax drafts.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bemificator": "source=./app-example/src/header.beml node ./src/index.js "
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MikeKovetsky/bemification.git"
+    "url": "git+https://github.com/MikeKovetsky/bemificator.git"
   },
   "keywords": [
     "bem",
