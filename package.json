@@ -1,0 +1,28 @@
+{
+  "name": "bemification",
+  "version": "0.0.1",
+  "description": "An advanced preprocessor to write a cleat BEM oriented code. Now is in the initial stage of syntax drafts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeKovetsky/bemification.git"
+  },
+  "keywords": [
+    "bem",
+    "html",
+    "preproccesor"
+  ],
+  "author": "mkovetsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeKovetsky/bemification/issues"
+  },
+  "homepage": "https://github.com/MikeKovetsky/bemification#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2"
+  }
+}
