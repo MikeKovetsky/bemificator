@@ -4,7 +4,7 @@
   "description": "An advanced preprocessor to write a cleat BEM oriented code. Now is in the initial stage of syntax drafts.",
   "main": "index.js",
   "scripts": {
-    "bemificator": "source=./app-example/src/header.beml node ./src/index.js "
+    "bemificator": "config=./app-example/bemificator-config.json node ./index.js "
   },
   "repository": {
     "type": "git",
