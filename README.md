@@ -12,7 +12,7 @@ Tabs
     tab
 ```   
 
-<code>Run npm bemificator</code>
+<code>npm run bemificator</code>
 This will translate the source bemified code into:
 ```html
 <div class="tabs">
