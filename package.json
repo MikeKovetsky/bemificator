@@ -4,7 +4,8 @@
   "description": "An advanced preprocessor to write a cleat BEM oriented code. Now is in the initial stage of syntax drafts.",
   "main": "index.js",
   "scripts": {
-    "bemificator": "config=./app-example/bemificator-config.json node ./index.js "
+    "bemificator": "config=./app-example/bemificator-config.json node ./index.js",
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/MikeKovetsky/bemification#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.5.2"
+    "babel-preset-env": "^1.5.2",
+    "jasmine": "^2.6.0"
   }
 }
