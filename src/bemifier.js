@@ -3,7 +3,7 @@ exports.Bemifier = class {
         this.config = config;
     }
 
-    run() {
-        return 'some html';
+    transpileSource(bemlSource) {
+        return bemlSource;
     }
 };

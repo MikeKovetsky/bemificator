@@ -12,17 +12,15 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             {pattern: 'src/test/js/extlib/jquery.191.js', included: true},
-        **LOAD MORE**
-        {pattern: 'src/main/js/src/**/*.js', included: false},
-    {pattern: 'src/test/js/spec/src/**/*.spec.js', included: false}
-    ],
+            {pattern: 'src/main/js/src/**/*.js', included: false},
+            {pattern: 'src/test/js/spec/src/**/*.spec.js', included: false}
+        ],
 
 
-
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+        // test results reporter to use
+        // possible values: 'dots', 'progress'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+        reporters: ['progress'],
 
 
         // web server port
@@ -52,6 +50,5 @@ module.exports = function (config) {
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
         singleRun: false
-});
+    });
 };
-shareeditflag
