@@ -9,10 +9,10 @@ describe("block parsing", function () {
         const file = loadFile('/beml-examples/block-with-class.beml');
         expect(bemifier.transpileSource(file)).toBe('<div class="tabs"></div>');
     });
-    // it(" 'Tabs' and 'Header' block", function () {
-    //     const file = loadFile('/beml-examples/2-blocks-with-class.beml');
-    //     expect(bemifier.transpileSource(file)).toBe('<div class="tabs"></div><div class="header"></div>');
-    // });
+    it(" 'Tabs' and 'Header' block", function () {
+        const file = loadFile('/beml-examples/2-blocks-with-class.beml');
+        expect(bemifier.transpileSource(file)).toBe('<div class="tabs"></div><div class="header"></div>');
+    });
 });
 
 function loadFile(relPath) {

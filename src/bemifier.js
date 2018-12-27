@@ -18,10 +18,10 @@ exports.Bemifier = class {
     }
 
     transpileSource(bemlSource) {
-        const lexemeSeparator = '/n';
-        const lines = bemlSource.split(lexemeSeparator);
+        const lexemeSeparators = ['\n', '.'];
+        const lines = HELPERS.splitBySeparators(bemlSource, lexemeSeparators);
         const htmlLines = lines.map(bemlLine => this._transpileLine(bemlLine));
-        return htmlLines.join(lexemeSeparator);
+        return htmlLines.join('');
     }
 
     _transpileLine(bemlLine) {

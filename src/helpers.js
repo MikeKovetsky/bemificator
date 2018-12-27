@@ -9,5 +9,14 @@ exports.Helpers = {
 
     lowerCaseFirstLetter(str) {
         return str.charAt(0).toLowerCase() + str.slice(1);
+    },
+
+    splitBySeparators(str, tokens) {
+        const tempChar = tokens[0]; // We can use the first token as a temporary join character
+        for (let i = 1; i < tokens.length; i++) {
+            str = str.split(tokens[i]).join(tempChar);
+        }
+        str = str.split(tempChar);
+        return str;
     }
 };
