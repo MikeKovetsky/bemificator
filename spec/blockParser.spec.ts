@@ -16,8 +16,8 @@ describe("block parsing", function () {
     });
 });
 
-function loadFile(relPath) {
+function loadFile(relPath: string) {
     const fs = require('fs');
-    var path = require('path');
+    const path = require('path');
     return fs.readFileSync(path.join(__dirname, relPath), { encoding: 'utf8' });
 }

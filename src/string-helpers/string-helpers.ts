@@ -1,5 +1,8 @@
-export class Helpers {
-    static isFirstSymbolUppercase(str) {
+export type HTML = string;
+export type BEML = string;
+
+export class StringHelpers {
+    static isFirstSymbolUppercase(str: string): boolean {
         if (str.length === 0) {
             throw new Error('string cannot be empty');
         }
@@ -7,16 +10,15 @@ export class Helpers {
         return first === first.toUpperCase();
     }
 
-    static lowerCaseFirstLetter(str) {
+    static lowerCaseFirstLetter(str: string): string {
         return str.charAt(0).toLowerCase() + str.slice(1);
     }
 
-    static splitBySeparators(str, tokens) {
+    static splitBySeparators(str: string, tokens: string[]): string[] {
         const tempChar = tokens[0]; // We can use the first token as a temporary join character
         for (let i = 1; i < tokens.length; i++) {
             str = str.split(tokens[i]).join(tempChar);
         }
-        str = str.split(tempChar);
-        return str;
+        return str.split(tempChar);
     }
 }

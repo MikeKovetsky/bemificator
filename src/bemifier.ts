@@ -1,40 +1,30 @@
-import { Helpers } from "./helpers";
-
-const TranslilationStrategiesEnum = {
-    Block: 'Block',
-};
-const TranslilationStrategies = {
-    Block: transpileBlock,
-};
-
-function transpileBlock(bemlSource) {
-    const htmlClass = Helpers.lowerCaseFirstLetter(bemlSource);
-    return `<div class="${htmlClass}"></div>`;
-}
+import { BemifierConfig } from "./bemifier-config.model";
+import { TranspilationStrategies, TranspilationStrategiesEnum } from "./transpilation-strategies";
+import { BEML, HTML, StringHelpers } from "./string-helpers/string-helpers";
 
 export class Bemifier {
-    config: any;
+    config: BemifierConfig;
 
-    constructor(config) {
+    constructor(config: BemifierConfig) {
         this.config = config;
     }
 
-    transpileSource(bemlSource) {
+    transpileSource(bemlSource: BEML): HTML {
         const lexemeSeparators = ['\n', '.'];
-        const lines = Helpers.splitBySeparators(bemlSource, lexemeSeparators);
-        const htmlLines = lines.map(bemlLine => this._transpileLine(bemlLine));
+        const lines = StringHelpers.splitBySeparators(bemlSource, lexemeSeparators);
+        const htmlLines = lines.map(bemlLine => this.transpileLine(bemlLine));
         return htmlLines.join('');
     }
 
-    _transpileLine(bemlLine) {
-        const strategy = this._defineTranspilationStrategy(bemlLine);
-        const htmlLine = TranslilationStrategies[strategy](bemlLine);
+    private transpileLine(bemlLine: BEML): HTML {
+        const strategy = this.defineTranspilationStrategy(bemlLine);
+        const htmlLine = TranspilationStrategies[strategy](bemlLine);
         return htmlLine;
     }
 
-    _defineTranspilationStrategy(lexeme) {
+    private  defineTranspilationStrategy(lexeme): TranspilationStrategiesEnum {
         switch (true) {
-            case Helpers.isFirstSymbolUppercase(lexeme): return TranslilationStrategiesEnum.Block;
+            case StringHelpers.isFirstSymbolUppercase(lexeme): return 'Block';
             default: throw new Error('Transpilation strategy is not implemented');
         }
     }
