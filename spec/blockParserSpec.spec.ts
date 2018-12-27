@@ -1,8 +1,9 @@
 
-const Bemifier = require('../src/bemifier');
 // const BASIC_CONFIG = { "source": "/spec/beml-examples/block.beml" };
+import { Bemifier } from "../src/bemifier";
+
 const BASIC_CONFIG = {};
-const bemifier = new Bemifier.Bemifier(BASIC_CONFIG);
+const bemifier = new Bemifier(BASIC_CONFIG);
 
 describe("block parsing", function () {
     it(" 'Tabs' block", function () {

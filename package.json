@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "bemificator": "config=./app-example/bemificator-config.json node ./index.js",
-    "test": "jasmine"
+    "test": "ts-node node_modules/jasmine/bin/jasmine"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,13 @@
   },
   "homepage": "https://github.com/MikeKovetsky/bemification#readme",
   "devDependencies": {
+    "@types/jasmine": "^3.3.5",
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.18",
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.5.2",
-    "jasmine": "^2.6.0"
+    "jasmine": "^2.99.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
   }
 }

@@ -1,4 +1,4 @@
-const HELPERS = require('./helpers.js').Helpers;
+import { Helpers } from "./helpers";
 
 const TranslilationStrategiesEnum = {
     Block: 'Block',
@@ -8,18 +8,20 @@ const TranslilationStrategies = {
 };
 
 function transpileBlock(bemlSource) {
-    const htmlClass = HELPERS.lowerCaseFirstLetter(bemlSource);
+    const htmlClass = Helpers.lowerCaseFirstLetter(bemlSource);
     return `<div class="${htmlClass}"></div>`;
 }
 
-exports.Bemifier = class {
+export class Bemifier {
+    config: any;
+
     constructor(config) {
         this.config = config;
     }
 
     transpileSource(bemlSource) {
         const lexemeSeparators = ['\n', '.'];
-        const lines = HELPERS.splitBySeparators(bemlSource, lexemeSeparators);
+        const lines = Helpers.splitBySeparators(bemlSource, lexemeSeparators);
         const htmlLines = lines.map(bemlLine => this._transpileLine(bemlLine));
         return htmlLines.join('');
     }
@@ -32,7 +34,7 @@ exports.Bemifier = class {
 
     _defineTranspilationStrategy(lexeme) {
         switch (true) {
-            case HELPERS.isFirstSymbolUppercase(lexeme): return TranslilationStrategiesEnum.Block;
+            case Helpers.isFirstSymbolUppercase(lexeme): return TranslilationStrategiesEnum.Block;
             default: throw new Error('Transpilation strategy is not implemented');
         }
     }
