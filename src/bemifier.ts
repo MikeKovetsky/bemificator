@@ -10,9 +10,13 @@ export class Bemifier {
     }
 
     public compileSource(bemlSource: BEML): HTML {
-        const lexemeSeparators = ["\n", "."];
-        const lines = StringHelpers.splitBySeparators(bemlSource, lexemeSeparators);
+        // todo: move separators list to separate config of BEM instances
+        // todo: bemInstancesSeparator list must be configurable vie Bemifier config
+        const bemInstancesSeparator = ["\n"];
+        // todo: move parsing to BemParser class
+        const lines = StringHelpers.splitBySeparators(bemlSource, bemInstancesSeparator);
         const htmlLines = lines.map(bemlLine => this.compileLine(bemlLine));
+        // todo: move html preparation logic to some HtmlPreparation class
         return htmlLines.join("");
     }
 

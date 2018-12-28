@@ -9,7 +9,7 @@ const COMPILER_STRATEGIES: CompilerStrategy[] = [
 export class BemlCompiler {
 
     public static compile(source: BEML): HTML {
-        const strategy = COMPILER_STRATEGIES.find((s) => s.isUsed(source));
+        const strategy = COMPILER_STRATEGIES.find((s) => s.isAppropriate(source));
         if (strategy === undefined) {
             throw new Error("Compilation strategy was not found");
         }
