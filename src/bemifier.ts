@@ -1,6 +1,6 @@
 import {IBemifierConfig} from "./bemifier-config.model";
-import {TRANSPILATION_STRATEGIES, TranspilationStrategiesEnum} from "./transpilation-strategies";
 import {BEML, HTML, StringHelpers} from "./string-helpers/string-helpers";
+import {BemlCompiler} from "./compiler/beml-compiler";
 
 export class Bemifier {
     public config: IBemifierConfig;
@@ -9,25 +9,14 @@ export class Bemifier {
         this.config = config;
     }
 
-    public transpileSource(bemlSource: BEML): HTML {
+    public compileSource(bemlSource: BEML): HTML {
         const lexemeSeparators = ["\n", "."];
         const lines = StringHelpers.splitBySeparators(bemlSource, lexemeSeparators);
-        const htmlLines = lines.map(bemlLine => this.transpileLine(bemlLine));
+        const htmlLines = lines.map(bemlLine => this.compileLine(bemlLine));
         return htmlLines.join("");
     }
 
-    private transpileLine(bemlLine: BEML): HTML {
-        const strategy = this.defineTranspilationStrategy(bemlLine);
-        const htmlLine = TRANSPILATION_STRATEGIES[strategy](bemlLine);
-        return htmlLine;
-    }
-
-    private defineTranspilationStrategy(lexeme: string): TranspilationStrategiesEnum {
-        switch (true) {
-            case StringHelpers.isFirstSymbolUppercase(lexeme):
-                return "Block";
-            default:
-                throw new Error("Transpilation strategy is not implemented");
-        }
+    private compileLine(bemlLine: BEML): HTML {
+        return BemlCompiler.compile(bemlLine);
     }
 }
