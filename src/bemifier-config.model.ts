@@ -1,3 +1,2 @@
-export interface BemifierConfig {
-    
+export interface IBemifierConfig {
 }
