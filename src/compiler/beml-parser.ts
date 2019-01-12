@@ -14,7 +14,7 @@ export class BemlParser {
 
     private buildBemBlock(rawBemlBlock: BEML): BemBlock {
         const rawBlockLines = StringHelpers.splitBySeparators(rawBemlBlock, ["\n"]);
-        const blockToken = this.stripIndentation(rawBemlBlock);
+        const blockToken = this.stripIndentation(rawBlockLines[0]);
         const blockElements = rawBlockLines.slice(1)
             .map(elemToken => this.stripIndentation(elemToken))
             .map(elemToken => new BemElem(elemToken));
