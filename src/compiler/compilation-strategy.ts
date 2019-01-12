@@ -1,6 +1,5 @@
 import {BEML, HTML} from "../string-helpers/string-helpers";
 
-export abstract class CompilerStrategy {
+export abstract class CompilationStrategy {
     public abstract compile(source: BEML): HTML;
-    public abstract isAppropriate(source: BEML): boolean;
 }

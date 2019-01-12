@@ -10,6 +10,14 @@ export class StringHelpers {
         return first === first.toUpperCase();
     }
 
+    public static isFirstSymbolLowercase(str: string): boolean {
+        if (str.length === 0) {
+            throw new Error("string cannot be empty");
+        }
+        const first = str.charAt(0);
+        return first === first.toLowerCase();
+    }
+
     public static lowerCaseFirstLetter(str: string): string {
         return str.charAt(0).toLowerCase() + str.slice(1);
     }
