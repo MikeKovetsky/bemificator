@@ -14,6 +14,10 @@ describe("block parsing", function (): void {
         const file = loadFile("/beml-examples/block/2-blocks-with-class.beml");
         expect(bemifier.compileSource(file)).toBe('<div class="tabs"></div><div class="header"></div>');
     });
+    it(" 'Tabs' and 'Header' with block classes delimited by space", function (): void {
+        const file = loadFile("/beml-examples/block/2-blocks-space-delimited.beml");
+        expect(bemifier.compileSource(file)).toBe('<div class="tabs"></div><div class="header"></div>');
+    });
     it(" 'Tabs' block with 'additionalClass' class", function (): void {
         const file = loadFile("/beml-examples/block/block-with-2-classes.beml");
         expect(bemifier.compileSource(file)).toBe('<div class="tabs additionalClass"></div>');

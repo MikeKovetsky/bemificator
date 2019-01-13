@@ -4,7 +4,7 @@ import {BemElem} from "./bem-instances/bem-elem";
 import {BemlValidator} from "../beml-validator/beml-validator";
 
 export class BemlParser {
-    private readonly blockSeparatorRE: RegExp = /\n(?=[A-Z])/;
+    private readonly blockSeparatorRE: RegExp = /[^a-z](?=[A-Z])/;
 
     public parse(rawSource: BEML): BemBlock[] {
         this.validateBemlSource(rawSource);
