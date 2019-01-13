@@ -15,10 +15,14 @@ export class BemlParser {
     private buildBemBlock(rawBemlBlock: BEML): BemBlock {
         const rawBlockLines = StringHelpers.splitBySeparators(rawBemlBlock, ["\n"]);
         const blockToken = this.stripIndentation(rawBlockLines[0]);
-        const blockElements = rawBlockLines.slice(1)
-            .map(elemToken => this.stripIndentation(elemToken))
-            .map(elemToken => new BemElem(elemToken));
+        const rawElements = rawBlockLines.slice(1);
+        const blockElements = rawElements.map((elemToken) => this.buildBemElement(elemToken));
         return new BemBlock(blockToken, blockElements);
+    }
+
+    private buildBemElement(elemToken: string): BemElem {
+        const preparedElemToken = this.stripIndentation(elemToken);
+        return new BemElem(preparedElemToken);
     }
 
     private stripIndentation(sourceLine: string): string {
