@@ -1,7 +1,7 @@
 {
   "name": "bemificator",
   "version": "0.0.2",
-  "description": "An advanced preprocessor to write a cleat BEM oriented code. Now is in the initial stage of syntax drafts.",
+  "description": "An advanced preprocessor to write a clean BEM oriented code. Now is in the initial stage of syntax drafts.",
   "main": "index.js",
   "scripts": {
     "bemificator": "config=./app-example/bemificator-config.json node ./index.js",
